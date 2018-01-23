@@ -5,7 +5,13 @@ public class Dress {
     private String brand;
     private int price;
     private int count;
+    private Developer developer = new Developer();
 
+    public void setDeveloper(String adressOfMainOffice, int index, String city ){
+        this.developer.setAdressOfMainOffice(adressOfMainOffice);
+        this.developer.setCity(city);
+        this.developer.setIndex(index);
+    }
     public Dress() {
     }
 

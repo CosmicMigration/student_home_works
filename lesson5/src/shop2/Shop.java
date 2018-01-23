@@ -9,10 +9,23 @@ public class Shop {
 
   private Dress dress;
 
-//    public Shop(Booots boot, Dress dress) {
-//        this.boot = boot;
-//        this.dress = dress;
-//    }
+  private String name;
+
+
+    public Shop() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+        public Shop(Booots boot, Dress dress) {
+        this.boot = boot;
+        this.dress = dress;
+    }
 
     public Booots getBoot() {
         return boot;

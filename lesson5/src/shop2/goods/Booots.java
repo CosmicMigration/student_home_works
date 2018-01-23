@@ -5,6 +5,13 @@ public class Booots {
     private String brand;
     private int price;
     private int count;
+    private Developer developer = new Developer();
+
+    public void setDeveloper(String adressOfMainOffice, int index, String city ){
+        this.developer.setAdressOfMainOffice(adressOfMainOffice);
+        this.developer.setCity(city);
+        this.developer.setIndex(index);
+    }
 
     public Booots() {
     }
@@ -13,6 +20,14 @@ public class Booots {
         this.size = size;
         this.brand = brand;
         this.price = price;
+    }
+
+    public Developer getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(Developer developer) {
+        this.developer = developer;
     }
 
     public int getPrice() {

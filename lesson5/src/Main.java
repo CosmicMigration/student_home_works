@@ -1,3 +1,4 @@
+import shop2.Most_city;
 import shop2.Shop;
 import shop2.goods.Booots;
 import shop2.goods.Dress;
@@ -6,32 +7,28 @@ public class Main {
 
     private static Booots boots;
     private static Dress dress;
-    private static Shop shop;
+
     public static void main(String[] args) {
-         shop = new Shop();
 
-        iniGoods(boots, dress);
+        Most_city most_city = new Most_city();
 
-        addDoodsToTheShop(shop, boots, dress);
+        Shop shop = new Shop();
+        shop.setName("Butik");
+
+        Booots anotherBoots = new Booots();
+        anotherBoots.setDeveloper("Chreschatic st.", 49000, "Kuiv");
+        shop.setBoot(anotherBoots);
+
+        most_city.addShopToShops(shop);
+
+        Shop shop1 = new Shop();
+        shop1.setName("good Shop");
+
+        most_city.addShopToShops(shop1);
+
+
+        most_city.showOneShop("good Shop");
 
     }
 
-
-    private static void addDoodsToTheShop(Shop shop, Booots boots, Dress dress) {
-        if(shop!=null){
-            if(boots!=null && dress!=null){
-                shop.setDress(dress);
-                shop.setBoot(boots);
-                System.out.println(boots.getBrand()+"price"+boots.getPrice());
-                System.out.println(dress.getBrand()+" price"+dress.getPrice());
-            }
-
-        }
-
-    }
-
-    public static void iniGoods(Booots bt, Dress dr){
-        boots = new Booots(15, "Nike", 95);
-        dress = new Dress(23, "Bershka", 100);
-    }
 }
