@@ -3,18 +3,24 @@ package hw_12_01_18;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Student {
+
     private String name;
     private int age;
 
     public Student() {
-        generateAge();
-        generateName();
     }
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+
 
     public String getName() {
         return name;
     }
-    // Todo update - done!
+
     public void setName(String name) {
         this.name = name;
     }
@@ -24,10 +30,9 @@ public class Student {
     }
 
     public void setAge(int age) {
-
         this.age = age;
     }
-    public void generateName(){
+    public void generateName(){//генератор имен
         String [] str = new String [20];
         str[0] = "Лютик";
         str[1] = "Геральт";
@@ -51,8 +56,6 @@ public class Student {
         str[19] = "Лера";
         this.name = str[ThreadLocalRandom.current().nextInt(0, 19 + 1) ];
     }
-    public void generateAge(){
-        int randomNum = ThreadLocalRandom.current().nextInt(7, 16 + 1) ;
-        this.age = randomNum;
-    }
+
+
 }
