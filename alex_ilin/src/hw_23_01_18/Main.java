@@ -20,7 +20,13 @@ public class Main {
         Arm arm = new Arm();
         Body corpus= new Body();
 
-        System.out.println("Цех по производству роботов.\nОтчет:");
+        leg.type();
+        head.type();
+        arm.type();
+        corpus.type();
+
+
+        System.out.println("\nЦех по производству роботов.\nОтчет:");
         Robot Robot_v1 = new Robot(head, leg, leg, arm, arm, corpus);
         System.out.println("\nБракованные роботы:\n");
         Robot Robot_v2 = new Robot(head,  leg, arm, arm, corpus);
