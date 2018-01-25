@@ -6,6 +6,9 @@ import hw_23_01_18.robot_task.*;
 import javax.xml.transform.Source;
 
 public class Main {
+    //Todo
+    //Добавить каждому компоненту его специфическое поведение. Н-д: CD-Rom  может читать а может еще и записывать диски.
+    //эта часть не выполнена
     public static void main(String[] args) {
         robot();
         computer();
