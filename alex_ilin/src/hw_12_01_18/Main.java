@@ -3,6 +3,9 @@ package hw_12_01_18;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
+    public static Student[] allStudents=initStudents();
+    private static int classALimit = 0;
+    private static int classBLimit = 0;
 
 
     public static void main(String[] args) {
@@ -11,6 +14,7 @@ public class Main {
     }
 
     public static void programm() {//отработка программы
+        checkAgeStudents();
         ClassRoom classA = new ClassRoom("A", 12);
         ClassRoom classB = new ClassRoom("Б", 15);
         addStudentsToClasses(classA, classB);
@@ -78,7 +82,7 @@ public class Main {
     }
 
     public static void addStudentsToClasses(ClassRoom classA, ClassRoom classB) {     //запись студентов в класс
-        for (Student student : initStudents()) {
+        for (Student student : allStudents) {
             if (student.getAge() < 12) {
                 classA.addStudentToClass(student);
             } else if(student.getAge()>11){
@@ -112,6 +116,17 @@ public class Main {
         }
         if (countCalledStudents == 0) {
             System.out.println("\nНикого тут нет\n");
+        }
+    }
+    public static void checkAgeStudents(){
+        for (int i = 0; i < allStudents.length; i++) {
+            if (allStudents[i].getAge()>=7 && allStudents[i].getAge() <=12){
+                if (classALimit == 12) {continue;}
+                classALimit++;
+            }else if (allStudents[i].getAge()>12){
+                if (classBLimit == 15) {continue;}
+                classBLimit++;
+            }
         }
     }
 }
