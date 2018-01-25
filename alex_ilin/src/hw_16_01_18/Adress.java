@@ -1,10 +1,10 @@
 package hw_16_01_18;
 
 public class Adress {
-    String adress;
-    String city;
-    String state;
-    int number;
+   private String adress;
+   private String city;
+   private String state;
+   private int number;
 
     public Adress() {
     }
@@ -15,6 +15,7 @@ public class Adress {
         this.state = state;
         this.number = number;
     }
+
 
 
     public String getAdress() {
@@ -49,8 +50,8 @@ public class Adress {
         this.number = number;
     }
 
-
-
-
+public void getAdressData(){
+    System.out.println("Адресные данные студента:\nГород:\n"+getCity()+"\nОбласть:\n"+getState()+"\nАдрес\n"+getAdress()+"\nКонтактный номер телефона\n"+getNumber());
+}
 
 }

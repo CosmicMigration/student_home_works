@@ -6,26 +6,15 @@ public class School {
     private int schoolNumber;
     private String schoolAdress;
     private int schoolPhone;
-    private String[] listOfSchoolClasses;
     private int classCount = 4;
-    private hw_16_01_18.ClassRoom[] arrayOfClasses;
+    private ClassRoom[] arrayOfClasses;
     private int countOfStudnets;
     private String classChar;
-    private hw_16_01_18.ClassRoom className;
 
 
 
-    public School() {
-        arrayOfClasses = new hw_16_01_18.ClassRoom[classCount];
-
-        for(int i = 0; i<classCount;i++){
-
-            className = new ClassRoom(classChar, countOfStudnets);
-            arrayOfClasses[i] = className;
-        }
 
 
-    }
 
     public ClassRoom[] getArrayOfClasses() {
         return arrayOfClasses;
@@ -67,14 +56,6 @@ public class School {
         this.schoolPhone = schoolPhone;
     }
 
-    public String[] getListOfSchoolClasses() {
-        return listOfSchoolClasses;
-    }
-
-    public void setListOfSchoolClasses(String[] listOfSchoolClasses) {
-        this.listOfSchoolClasses = listOfSchoolClasses;
-    }
-
     public int getClassCount() {
         return classCount;
     }
@@ -91,11 +72,5 @@ public class School {
         this.classChar = classChar;
     }
 
-    //    public void createNewClasses(String classWord, int classLimit) {//сохдаем новые классы
-//          for(int i = 0; i<classCount; i++){
-//       ClassRoom classic = new ClassRoom(classWord, classLimit);
-//   }
-//
-//}
 
 }

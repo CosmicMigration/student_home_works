@@ -1,20 +1,21 @@
 package hw_16_01_18;
 
+
 public class ClassRoom {
 
     private String classWord;
     private int classLimit;
     Student[] studMass;
+    private int countOfStudents = 0;
+    private int missedStudents = 0;
 
-
-    public ClassRoom(int classLimit) {//конструктор, к-й задает длину массива
-        studMass = new Student[classLimit];
+    public ClassRoom() {
     }
 
-    public ClassRoom(String classWord, int classLimit) {//конструктор, принимающий букву класса и его размер
+    public ClassRoom(String classWord, int classLimit) {
         this.classWord = classWord;
         this.classLimit = classLimit;
-        studMass = new Student[classLimit];
+        this.studMass = new Student[classLimit];
     }
 
     public String getClassWord() {
@@ -33,63 +34,122 @@ public class ClassRoom {
         this.classLimit = classLimit;
     }
 
-    public Student[] getStudMass() {
-        return studMass;
+    public int getMissedStudents() {//можно глянуть сколько студентов, подходящих по возрасту не попало в класс
+        return missedStudents;
     }
 
-    public void setStudMass(Student[] studMass) {
-        this.studMass = studMass;
-    }
 
-    private int studCount = 0;
-
-    public int getStudCount() {
-        return studCount;
-    }
-
-    public void setStudCount(int studCount) {
-        this.studCount = studCount;
-    }
-
-    public void addStudentToClass(Student s) {//добавить студентов в класс
-        if (studCount < studMass.length) {
-            for (int i = 0; i < studMass.length; i++) {
+    public void addStudentToClass(Student student) {// запись конкретного студента в класс
+        if (countOfStudents < studMass.length) {
+            for (int i = countOfStudents; i < studMass.length; i++) {
                 if (studMass[i] == null) {
-                    studMass[i] = s;
-                    studCount++;
+                    studMass[i] = student;
+                    countOfStudents++;
                     break;
                 }
+
             }
         } else {
-            System.out.println("net mest");
+
+            missedStudents++;
+            System.out.println(student.getAge() + " имя " + student.getName());
+
         }
+
 
     }
 
-    public void printStudentNameAndAgeInClass() {//вывести имена и возраст студентов в классе
+    public void showAllStudents() {// показать всех студентов
+        System.out.println("Класс " + classWord);
         for (Student student : studMass) {
-            if (student != null) {
-                System.out.println(student.getName() + " , " + student.getAge());
-            }
+            System.out.println("Имя несчастного: " + student.getName() + ". Его возраст - " + student.getAge());
         }
     }
 
-    public void printStudentNameInClass() {//вывести имена в классе
+    public void showAllStudentsByName() {// показать всех студентов по имени
+        System.out.println("Класс " + classWord);
         for (Student student : studMass) {
-            if (student != null) {
-                System.out.println(student.getName());
-            }
+            System.out.println("Имя несчастного: " + student.getName());
         }
     }
 
-    public Student getStudentByName(String name) {//получить студента по имени
-        for (Student stud : studMass) {
-            if (stud.getName().equals(name)) {
-                return stud;
+    public void sortByAge() {//сортировка по возрасту в прямом порядке
+        for (int i = studMass.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+
+                if (studMass[j].getAge() > studMass[j + 1].getAge()) {
+                    Student tmp;
+                    tmp = studMass[j];
+                    studMass[j] = studMass[j + 1];
+                    studMass[j + 1] = tmp;
+                }
+
             }
+
+
+            System.out.println(studMass[i].getAge() + " Имя " + studMass[i].getName());
         }
-        return null;
     }
 
+    public void sortRevByAge() {//сортировка по возрасту в обратном порядке
+        for (int i = studMass.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (studMass[j].getAge() < studMass[j + 1].getAge()) {
+                    Student tmp;
+                    tmp = studMass[j];
+                    studMass[j] = studMass[j + 1];
+                    studMass[j + 1] = tmp;
+                }
+            }
+            System.out.println(studMass[i].getAge() + " Имя " + studMass[i].getName());
+        }
+    }
 
+    public void sortByName() {//сортировка по имени в прямом порядке
+        for (int i = studMass.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                    if (studMass[j].getName().compareTo(studMass[j + 1].getName()) < 0) {
+                        Student tmp;
+                        tmp = studMass[j];
+                        studMass[j] = studMass[j + 1];
+                        studMass[j + 1] = tmp;
+                    }
+            }
+            System.out.println(studMass[i].getAge() + " Имя " + studMass[i].getName());
+
+        }
+    }
+
+    public void sortRevByName() {//сортировка по имени в реверсном порядке
+        for (int i = studMass.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                    if (studMass[j].getName().compareTo(studMass[j + 1].getName()) > 0) {
+                        Student tmp;
+                        tmp = studMass[j];
+                        studMass[j] = studMass[j + 1];
+                        studMass[j + 1] = tmp;
+                    }
+            }
+
+            System.out.println(studMass[i].getAge() + " Имя " + studMass[i].getName());
+        }
+    }
+
+    private int countCalledStudents = 0;
+
+    public void callStudentByNameInClass(Student s) {//ищем студента по имени внутри класса
+        s.generateName();
+        System.out.println("Ищем студента по имени: " + s.getName());
+        for (int i = 0; i < studMass.length; i++) {
+            if (s.getName().equals(studMass[i].getName())) {
+                System.out.println(studMass[i].getName() + " ему(ей) " + studMass[i].getAge() + " лет");
+                countCalledStudents++;
+            }
+
+        }
+        if (countCalledStudents == 0) {
+            System.out.println("\nНикого тут нет\n");
+        }
+
+    }
 }
