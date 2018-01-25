@@ -64,7 +64,7 @@ public class Main {
     }
 
     public static Student[] initStudents() {      //инициализация студентов
-        Student[] allStudents = new Student[40];
+        Student[] allStudents = new Student[27];
         System.out.println("Все студенты\n");
         for (int i = 0; i < allStudents.length; i++) {
             Student student = new Student();
@@ -79,9 +79,9 @@ public class Main {
 
     public static void addStudentsToClasses(ClassRoom classA, ClassRoom classB) {     //запись студентов в класс
         for (Student student : initStudents()) {
-            if (student.getAge() < 13) {
+            if (student.getAge() < 12) {
                 classA.addStudentToClass(student);
-            } else {
+            } else if(student.getAge()>11){
                 classB.addStudentToClass(student);
             }
         }
