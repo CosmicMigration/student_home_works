@@ -1,20 +1,41 @@
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        Student[] studArr = new Student[40];
+        Student size = new Student();
+        size.setSize(40);
+        Student [] studArr = new Student[size.getSize()];
+        fillStudArr(studArr);
 
-        for (int i = 0; i < 40; i++) {
+        Student sizeA = new Student();
+        sizeA.setSize(12);
+        Student [] studArrA = new Student[sizeA.getSize()];
+
+        Student sizeB = new Student();
+        sizeB.setSize(15);
+        Student [] studArrB = new Student[sizeB.getSize()];
+
+        Student [] studArrMissed = new Student [studArr.length - studArrA.length - studArrB.length];
+        fillTheClasses(studArr, studArrA, studArrB, studArrMissed);
+
+        ClassRoom classA = new ClassRoom("A", sizeA.getSize(), studArrA);
+        ClassRoom classB = new ClassRoom("B", sizeB.getSize(), studArrB);
+        ClassRoom classMissed = new ClassRoom("Missed", studArr.length - studArrA.length - studArrB.length, studArrMissed);
+
+    }
+
+    public static void fillStudArr(Student [] studArr){
+        for (int i = 0; i < studArr.length; i++){
             Student myStudent = new Student();
-            myStudent.setAge(myStudent.randomNum());
+            myStudent.setAge(myStudent.randomAge());
             myStudent.setName(myStudent.randomName());
             studArr[i] = myStudent;
         }
+    }
 
-        Student[] studArrA = new Student[12];
-        Student[] studArrB = new Student[15];
-        Student[] missed = new Student [studArr.length - studArrA.length - studArrB.length];
+    public static void fillTheClasses(Student [] studArr, Student [] studArrA, Student [] studArrB, Student [] studArrMissed){
 
         for (int i = 0, j = 0, k = 0, n = 0; i < studArr.length; i++){
             if (j < studArrA.length && studArr[i].getAge() <= 12){
@@ -22,37 +43,14 @@ public class Main {
                 j++;
             }
             if ((studArr[i].getAge() > 12 && k < studArrB.length)|| (j >= studArrA.length && k < studArrB.length)){
-             studArrB[k] = studArr[i];
-             k++;
+                studArrB[k] = studArr[i];
+                k++;
             }
             if (i >= studArrA.length + studArrB.length){
-                missed[n] = studArr[i];
+                studArrMissed[n] = studArr[i];
                 n++;
             }
         }
-
-        ClassRoom classA = new ClassRoom("A", 12, studArrA);
-        ClassRoom classB = new ClassRoom("B", 15, studArrB);
-        ClassRoom classMissed = new ClassRoom("Missed",studArr.length - studArrA.length - studArrB.length, missed);
-
-        classA.showHowManyStudents();
-        classB.showHowManyStudents();
-        classMissed.showHowManyStudents();
-
-        classA.showTheStudents();
-        classB.showTheStudents();
-        classMissed.showTheStudents();
-
-        classA.showTheName();
-
-        classA.sortByAge();
-
-        classA.sortByAgeReverse();
-
-        classA.sortByName();
-
-        classA.sortByNameReverse();
-
-        classA.searchByName();
     }
+
 }

@@ -3,15 +3,22 @@ import java.util.Scanner;
 
 public class ClassRoom {
 
-    String classWord;
-    int classLimit;
-    Student[] studMass;
+    private String classWord;
+    private int classLimit;
+    private Student [] studMass;
+    private Student [] studMassA;
+    private Student [] studMassB;
 
-
+    public ClassRoom() {
+    }
     public ClassRoom(String classWord, int classLimit, Student[] studMass) {
         this.classWord = classWord;
         this.classLimit = classLimit;
         this.studMass = studMass;
+    }
+    public ClassRoom(Student[] studMassA, Student[] studMassB) {
+        this.studMassA = studMassA;
+        this.studMassB = studMassB;
     }
 
     public void showHowManyStudents(){
@@ -22,7 +29,7 @@ public class ClassRoom {
     public void showTheStudents(){
         System.out.println("========================");
         for(int i = 0; i < studMass.length; i++){
-            System.out.println(classWord + " [" + i + "]: Age: " + studMass[i].getAge() + ". Name: " + studMass[i].getName());
+            System.out.println(classWord + " [" + i + "] age: " + studMass[i].getAge() + ", name: " + studMass[i].getName());
         }
     }
 
@@ -39,9 +46,9 @@ public class ClassRoom {
         for(int i = 0; i < studMass.length - 1; i++){
             for(int j = 0; j < studMass.length - 1 - i; j++){
                 if(studMass[j].getAge() > studMass[j+1].getAge()){
-                temp = studMass[j];
-                studMass[j] = studMass[j+1];
-                studMass[j+1] = temp;
+                    temp = studMass[j];
+                    studMass[j] = studMass[j+1];
+                    studMass[j+1] = temp;
                 }
             }
         }
@@ -119,21 +126,26 @@ public class ClassRoom {
         }
     }
 
-//    public void searchClassByName(){
-//        System.out.println("Enter the name: ");
-//        Scanner scn = new Scanner(System.in);
-//        String name = scn.nextLine();
-//        boolean noName = true;
-//        for (int i = 0; i <studMass.length; i++){
-//            if(name.equals(studMass[i].getName())){
-//                System.out.println("Yes, you have this student in the class " + classWord + " [" + i + "]: Age: " + studMass[i].getAge() + ". Name: " + studMass[i].getName());
-//                noName = false;
-//            }
-//        }
-//        if (noName){
-//            System.out.println("No such students in this class.");
-//        }
-//    }
+    public void searchClassByName(Student [] studMassA, Student [] studMassB){
+        System.out.println("Enter the name: ");
+        Scanner scn = new Scanner(System.in);
+        String name = scn.nextLine();
+        boolean noName = true;
 
-
+        for (int i = 0; i <studMassA.length; i++){
+            if(name.equals(studMassA[i].getName())){
+                System.out.println("You have this student in the class A: " + " [" + i + "] age: " + studMassA[i].getAge() + ", name: " + studMassA[i].getName());
+                noName = false;
+            }
+        }
+        for (int j = 0; j <studMassB.length; j++){
+            if(name.equals(studMassB[j].getName())){
+                System.out.println("You have this student in the class B: " + "[" + j + "] age: " + studMassB[j].getAge() + ", name: " + studMassB[j].getName());
+                noName = false;
+            }
+        }
+        if (noName){
+            System.out.println("No such students in our classes.");
+        }
+    }
 }
