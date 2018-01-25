@@ -61,11 +61,6 @@ public class ClassRoom {
     public void showAllStudents() {// показать всех студентов
         System.out.println("Класс " + classWord);
         for (Student student : studMass) {
-//            if (student == null) {
-//                Student st = new Student();
-//                st.setName("Свободное место для студента");
-//                student = st;
-//            }
             System.out.println("Имя несчастного: " + student.getName() + ". Его возраст - " + student.getAge());
         }
     }
@@ -73,11 +68,6 @@ public class ClassRoom {
     public void showAllStudentsByName() {// показать всех студентов по имени
         System.out.println("Класс " + classWord);
         for (Student student : studMass) {
-//            if (student == null) {
-//                Student st = new Student();
-//                st.setName("Свободное место для студента");
-//                student = st;
-//            }
             System.out.println("Имя несчастного: " + student.getName());
         }
     }
@@ -103,14 +93,12 @@ public class ClassRoom {
     public void sortRevByAge() {//сортировка по возрасту в обратном порядке
         for (int i = studMass.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
-
                 if (studMass[j].getAge() < studMass[j + 1].getAge()) {
                     Student tmp;
                     tmp = studMass[j];
                     studMass[j] = studMass[j + 1];
                     studMass[j + 1] = tmp;
                 }
-
             }
             System.out.println(studMass[i].getAge() + " Имя " + studMass[i].getName());
         }
@@ -119,19 +107,12 @@ public class ClassRoom {
     public void sortByName() {//сортировка по имени в прямом порядке
         for (int i = studMass.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
-//                if (studMass[j] != null) {
                     if (studMass[j].getName().compareTo(studMass[j + 1].getName()) < 0) {
                         Student tmp;
                         tmp = studMass[j];
                         studMass[j] = studMass[j + 1];
                         studMass[j + 1] = tmp;
                     }
-//                    else if (studMass[j] == null) {
-//                        Student st = new Student();
-//                        st.setName("Тут мог бы быть студент");
-//                        studMass[j] = st;
-//                    }
-//                }
             }
             System.out.println(studMass[i].getAge() + " Имя " + studMass[i].getName());
 
@@ -141,19 +122,12 @@ public class ClassRoom {
     public void sortRevByName() {//сортировка по имени в реверсном порядке
         for (int i = studMass.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
-//                if (studMass[j] != null) {
                     if (studMass[j].getName().compareTo(studMass[j + 1].getName()) > 0) {
                         Student tmp;
                         tmp = studMass[j];
                         studMass[j] = studMass[j + 1];
                         studMass[j + 1] = tmp;
                     }
-//                    else if (studMass[j] == null) {
-//                        Student st = new Student();
-//                        st.setName("Тут мог бы быть студент");
-//                        studMass[j] = st;
-//                    }
-//                }
             }
 
             System.out.println(studMass[i].getAge() + " Имя " + studMass[i].getName());

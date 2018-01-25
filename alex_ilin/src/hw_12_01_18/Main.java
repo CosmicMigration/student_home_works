@@ -3,7 +3,8 @@ package hw_12_01_18;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
-    public static Student[] allStudents=initStudents();
+
+    public static Student[] allStudents = initStudents();
     private static int classALimit = 0;
     private static int classBLimit = 0;
 
@@ -15,8 +16,8 @@ public class Main {
 
     public static void programm() {//отработка программы
         checkAgeStudents();
-        ClassRoom classA = new ClassRoom("A", 12);
-        ClassRoom classB = new ClassRoom("Б", 15);
+        ClassRoom classA = new ClassRoom("A", classALimit);
+        ClassRoom classB = new ClassRoom("Б", classBLimit);
         addStudentsToClasses(classA, classB);
 
 
@@ -31,28 +32,28 @@ public class Main {
         classA.showAllStudentsByName();
         classB.showAllStudentsByName();
 
-        System.out.println("\nСортировки\n");
+        System.out.println("\nСортировки\n Класс А\n");
 
         classA.sortByName();
-        System.out.println("\nКлассы соответственно\n");
+        System.out.println("\nКласс Б\n");
         classB.sortByName();
 
-        System.out.println("\nПо возрасту\n");
+        System.out.println("\nПо возрасту\n Класс А\n");
 
         classA.sortByAge();
-        System.out.println("\nКлассы соответственно\n");
+        System.out.println("\nКласс Б\n");
         classB.sortByAge();
 
-        System.out.println("\nСортировки в реверсном порядке\n");
+        System.out.println("\nСортировки в реверсном порядке\n Класс А\n");
 
         classA.sortRevByName();
-        System.out.println("\nКлассы соответственно\n");
+        System.out.println("\nКласс Б\n");
         classB.sortRevByName();
 
-        System.out.println("\nПо возрасту\n");
+        System.out.println("\nПо возрасту\nКласс А\n");
 
         classA.sortRevByAge();
-        System.out.println("\nКлассы соответственно\n");
+        System.out.println("\nКласс Б\n");
         classB.sortRevByAge();
 
         System.out.println("\nПоиск студентов по имени внутри конкретного класса\n");
@@ -64,11 +65,10 @@ public class Main {
         System.out.println("\nПоиск студентов в обоих классах по имени\n");
 
         callStudentByNameFromAnyClass(student, classA, classB);
-
     }
 
     public static Student[] initStudents() {      //инициализация студентов
-        Student[] allStudents = new Student[27];
+        Student[] allStudents = new Student[40];
         System.out.println("Все студенты\n");
         for (int i = 0; i < allStudents.length; i++) {
             Student student = new Student();
@@ -77,15 +77,16 @@ public class Main {
             allStudents[i] = student;
             System.out.println(student.getName() + " " + student.getAge());
         }
+
         System.out.println("\nСтуденты не попали:\n");
         return allStudents;
     }
 
     public static void addStudentsToClasses(ClassRoom classA, ClassRoom classB) {     //запись студентов в класс
         for (Student student : allStudents) {
-            if (student.getAge() < 12) {
+            if (student.getAge() >= 7 && student.getAge() <= 12) {
                 classA.addStudentToClass(student);
-            } else if(student.getAge()>11){
+            } else {
                 classB.addStudentToClass(student);
             }
         }
@@ -118,9 +119,10 @@ public class Main {
             System.out.println("\nНикого тут нет\n");
         }
     }
+
     public static void checkAgeStudents(){
         for (int i = 0; i < allStudents.length; i++) {
-            if (allStudents[i].getAge()>=7 && allStudents[i].getAge() <=12){
+            if (allStudents[i].getAge() <=12){
                 if (classALimit == 12) {continue;}
                 classALimit++;
             }else if (allStudents[i].getAge()>12){
