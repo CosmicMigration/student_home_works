@@ -57,6 +57,12 @@ public class Main {
         Printer printer = new Printer();
         System_block system_block = new System_block();
 
+        mouse.sense();
+        monitor.message();
+        keyboard.sense();
+        printer.sense();
+        system_block.content();
+
         System.out.println("\nЦех сборки компьютеров.\nСбор информации");
         System.out.println("\nФункционирующие компьютеры\n");
         Computer computer_v1 = new Computer(mouse, keyboard, monitor, system_block, printer);
