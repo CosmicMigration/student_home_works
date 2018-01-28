@@ -1,6 +1,10 @@
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+
+// Todo программа не запускается java.lang.NullPointerExceptionс
+// Todo java.lang.NullPointerException
+// Todo создать простой проект, сравнить струкруру пакета. Реорганизовать правильную струкруту в своей директории.
 public class Main {
     private static int allStudCount = 10;
     private static ClassRoom[] classRoomArr;
