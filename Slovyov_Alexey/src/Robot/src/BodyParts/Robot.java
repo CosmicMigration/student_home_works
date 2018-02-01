@@ -1,6 +1,10 @@
 package BodyParts;
 
+import java.util.Objects;
+
 public class Robot {
+
+    //-----------------------------------------
     private Head basicHead;
     private Legs basicLegsLeft;
     private Legs basicLegsRight;
@@ -16,7 +20,7 @@ public class Robot {
         this.basicLegsRight = basicLegsRight;
         this.basicArmsLeft = basicArmsLeft;
         this.basicArmsRight = basicArmsRight;
-        System.out.println("Робот собран");
+       // System.out.println("Робот собран");
     }
 
     public Robot(Head basicHead, Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft) {
@@ -43,9 +47,7 @@ public class Robot {
         System.out.println("НЕ могу говорить");
     }
 
-    public Head getBasicHead() {
-        return basicHead;
-    }
+
 
     public void setBasicHead(Head basicHead) {
         this.basicHead = basicHead;
@@ -81,5 +83,28 @@ public class Robot {
 
     public void setBasicArmsRight(Arms basicArmsRight) {
         this.basicArmsRight = basicArmsRight;
+    }
+    //-----------------------------------------------------------------
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Robot robot = (Robot) o;
+        return Objects.equals(basicHead, robot.basicHead) &&
+                Objects.equals(basicLegsLeft, robot.basicLegsLeft) &&
+                Objects.equals(basicLegsRight, robot.basicLegsRight) &&
+                Objects.equals(basicArmsLeft, robot.basicArmsLeft) &&
+                Objects.equals(basicArmsRight, robot.basicArmsRight);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(basicHead, basicLegsLeft, basicLegsRight, basicArmsLeft, basicArmsRight);
+    }
+
+    public Head getBasicHead() {
+
+        return basicHead;
     }
 }

@@ -4,6 +4,9 @@ import BodyParts.Arms;
 import BodyParts.Head;
 import BodyParts.Legs;
 import BodyParts.Robot;
+import Three_Robots.RobotFire;
+import Three_Robots.RobotRpg;
+import Three_Robots.RobotShooter;
 
 public class BuildingRobot {
     public static void main(String[] args) {
@@ -25,9 +28,19 @@ public class BuildingRobot {
 
 //        System.out.println(verter.getBasicHead().getaHead()+verter.getBasicArms().getArm());
 //        System.out.println(verter.getBasicHead().getaHead());
-        Robot robot1=new Robot(firstHead,leftLegs,rightArms,leftArms);
-        Robot robot2=new Robot(firstHead,leftLegs,rightLegs,rightArms);
-        Robot robot3=new Robot(leftLegs,rightLegs,leftArms,rightArms);
+//        Robot robot1=new Robot(firstHead,leftLegs,rightArms,leftArms);//через конструктор
+//        Robot robot2=new Robot(firstHead,leftLegs,rightLegs,rightArms);
+//        Robot robot3=new Robot(leftLegs,rightLegs,leftArms,rightArms);
+
+        RobotFire fired=new RobotFire(firstHead,leftLegs,rightLegs,leftArms,rightArms,30);
+        RobotFire fired1=new RobotFire(firstHead,leftLegs,rightLegs,leftArms,rightArms,30);
+        RobotRpg rpged=new RobotRpg(firstHead,leftLegs,rightLegs,leftArms,rightArms,30);
+        RobotShooter shootered=new RobotShooter(firstHead,leftLegs,rightLegs,leftArms,rightArms,100);
+
+
+        System.out.println(rpged.equals(shootered));
+
+
 
 
 
