@@ -13,10 +13,12 @@ public class FractionStart {
         System.out.println(fraction2.toString());
 
         System.out.println("---------------------------------");
-
+        System.out.println("Сложение");
         System.out.println(addition(fraction, fraction2).toString());
-        System.out.println(multiplication(fraction).toString());
-        System.out.println(devision(fraction).toString());
+        System.out.println("Умножение");
+        System.out.println(multiplication(fraction, fraction2).toString());
+        System.out.println("Деление");
+        System.out.println(devision(fraction, fraction2).toString());
 
     }
     public static Fraction addition(Fraction frac1, Fraction frac2){
@@ -25,19 +27,16 @@ public class FractionStart {
         result.setDenominator(frac1.getDenominator()*frac2.getDenominator());
         return result;
     }
-    public static Fraction multiplication(Fraction frac1){
-
-        double resulter = frac1.getNumerator()/frac1.getDenominator();
-        double multiplicator = 5.5;
-        double newResult = resulter*multiplicator;
+    public static Fraction multiplication(Fraction frac1, Fraction frac2){
         Fraction result = new Fraction();
+        result.setNumerator(frac1.getNumerator()*frac2.getNumerator());
+        result.setDenominator(frac1.getDenominator()*frac2.getDenominator());
         return result;
     }
-    public static Fraction devision(Fraction frac1){
+    public static Fraction devision(Fraction frac1, Fraction frac2){
         Fraction result = new Fraction();
-        double resulter = frac1.getNumerator()/frac1.getDenominator();
-        double devisier = 5.5;
-        double newResult = resulter/devisier;
+        result.setNumerator(frac1.getNumerator()*frac2.getDenominator());
+        result.setDenominator(frac1.getDenominator()*frac2.getNumerator());
         return result;
     }
 }
