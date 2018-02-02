@@ -1,6 +1,6 @@
 import java.util.*;
 public class Calc {
-    public static void main(String[] args) {
+    public static strictfp void main(String[] args) {
         double num1 = getDouble();
         char operation = getOperation();
         double num2 = getDouble();

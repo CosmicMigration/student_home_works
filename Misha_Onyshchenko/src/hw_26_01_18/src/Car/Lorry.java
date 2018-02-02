@@ -7,6 +7,10 @@ public class Lorry extends Car {
 
     public Lorry() {
     }
+    public Lorry(float power) {
+        super(power);
+    }
+
     public float getCapacity() {
         return capacity;
     }
@@ -22,9 +26,7 @@ public class Lorry extends Car {
      return setBrand(newBrand);
     }
 
-    public Lorry(float power) {
-        super(power);
-    }
+
 
 }
 
