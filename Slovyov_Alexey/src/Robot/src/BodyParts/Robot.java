@@ -11,39 +11,46 @@ public class Robot {
     private Arms basicArmsLeft;
     private Arms basicArmsRight;
 
+
+    private String nameOfRobot;
+
     public Robot() {
     }
 
-    public Robot(Head basicHead, Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft, Arms basicArmsRight) {
+    public Robot(Head basicHead, Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft, Arms basicArmsRight, String nameOfRobot) {
         this.basicHead = basicHead;
         this.basicLegsLeft = basicLegsLeft;
         this.basicLegsRight = basicLegsRight;
         this.basicArmsLeft = basicArmsLeft;
         this.basicArmsRight = basicArmsRight;
-       // System.out.println("Робот собран");
+        //System.out.println("Робот собран");
+        this.nameOfRobot = nameOfRobot;
     }
 
-    public Robot(Head basicHead, Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft) {
+    public Robot(Head basicHead, Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft, String nameOfRobot) {
         this.basicHead = basicHead;
         this.basicLegsLeft = basicLegsLeft;
         this.basicLegsRight = basicLegsRight;
         this.basicArmsLeft = basicArmsLeft;
+        this.nameOfRobot = nameOfRobot;
         System.out.println("Могу писать только одной рукой");
     }
 
-    public Robot(Head basicHead, Legs basicLegsRight, Arms basicArmsLeft, Arms basicArmsRight) {
+    public Robot(Head basicHead, Legs basicLegsRight, Arms basicArmsLeft, Arms basicArmsRight, String nameOfRobot) {
         this.basicHead = basicHead;
         this.basicLegsRight = basicLegsRight;
         this.basicArmsLeft = basicArmsLeft;
         this.basicArmsRight = basicArmsRight;
+        this.nameOfRobot = nameOfRobot;
         System.out.println("Могу только прыгать на одной ноге");
     }
 
-    public Robot(Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft, Arms basicArmsRight) {
+    public Robot(Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft, Arms basicArmsRight, String nameOfRobot) {
         this.basicLegsLeft = basicLegsLeft;
         this.basicLegsRight = basicLegsRight;
         this.basicArmsLeft = basicArmsLeft;
         this.basicArmsRight = basicArmsRight;
+        this.nameOfRobot = nameOfRobot;
         System.out.println("НЕ могу говорить");
     }
 
@@ -85,6 +92,23 @@ public class Robot {
         this.basicArmsRight = basicArmsRight;
     }
     //-----------------------------------------------------------------
+
+
+    public String getNameOfRobot() {
+        return nameOfRobot;
+    }
+
+    public void setNameOfRobot(String nameOfRobot) {
+        this.nameOfRobot = nameOfRobot;
+    }
+
+    @Override
+    public String toString() {
+        return "Robot{" +
+                "nameOfRobot='" + nameOfRobot + '\'' +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -94,17 +118,13 @@ public class Robot {
                 Objects.equals(basicLegsLeft, robot.basicLegsLeft) &&
                 Objects.equals(basicLegsRight, robot.basicLegsRight) &&
                 Objects.equals(basicArmsLeft, robot.basicArmsLeft) &&
-                Objects.equals(basicArmsRight, robot.basicArmsRight);
+                Objects.equals(basicArmsRight, robot.basicArmsRight) &&
+                Objects.equals(nameOfRobot, robot.nameOfRobot);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(basicHead, basicLegsLeft, basicLegsRight, basicArmsLeft, basicArmsRight);
-    }
-
-    public Head getBasicHead() {
-
-        return basicHead;
+        return Objects.hash(basicHead, basicLegsLeft, basicLegsRight, basicArmsLeft, basicArmsRight, nameOfRobot);
     }
 }

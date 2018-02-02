@@ -10,8 +10,8 @@ import java.util.Objects;
 public class RobotRpg extends Robot {
     private int rpg;
 
-    public RobotRpg(Head basicHead, Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft, Arms basicArmsRight, int rpg) {
-        super(basicHead, basicLegsLeft, basicLegsRight, basicArmsLeft, basicArmsRight);
+    public RobotRpg(Head basicHead, Legs basicLegsLeft, Legs basicLegsRight, Arms basicArmsLeft, Arms basicArmsRight, String nameOfRobot, int rpg) {
+        super(basicHead, basicLegsLeft, basicLegsRight, basicArmsLeft, basicArmsRight, nameOfRobot);
         this.rpg = rpg;
     }
 
@@ -27,6 +27,7 @@ public class RobotRpg extends Robot {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         RobotRpg robotRpg = (RobotRpg) o;
         return rpg == robotRpg.rpg;
     }
@@ -34,6 +35,6 @@ public class RobotRpg extends Robot {
     @Override
     public int hashCode() {
 
-        return Objects.hash(rpg);
+        return Objects.hash(super.hashCode(), rpg);
     }
 }

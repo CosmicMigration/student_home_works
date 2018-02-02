@@ -32,13 +32,75 @@ public class BuildingRobot {
 //        Robot robot2=new Robot(firstHead,leftLegs,rightLegs,rightArms);
 //        Robot robot3=new Robot(leftLegs,rightLegs,leftArms,rightArms);
 
-        RobotFire fired=new RobotFire(firstHead,leftLegs,rightLegs,leftArms,rightArms,30);
-        RobotFire fired1=new RobotFire(firstHead,leftLegs,rightLegs,leftArms,rightArms,30);
-        RobotRpg rpged=new RobotRpg(firstHead,leftLegs,rightLegs,leftArms,rightArms,30);
-        RobotShooter shootered=new RobotShooter(firstHead,leftLegs,rightLegs,leftArms,rightArms,100);
+        RobotFire fired=new RobotFire(firstHead,leftLegs,rightLegs,leftArms,rightArms,"Gosha",34);
+        RobotFire fired1=new RobotFire(firstHead,leftLegs,rightLegs,leftArms,rightArms,"Misha",36);
+
+        RobotRpg rpged=new RobotRpg(firstHead,leftLegs,rightLegs,leftArms,rightArms,"Bazuka",50);
+        RobotRpg rpged1=new RobotRpg(firstHead,leftLegs,rightLegs,leftArms,rightArms,"PTUR",60);
+
+        RobotShooter shootered=new RobotShooter(firstHead,leftLegs,rightLegs,leftArms,rightArms,"Strelok",80);
+        RobotShooter shootered1=new RobotShooter(firstHead,leftLegs,rightLegs,leftArms,rightArms,"Snayper",85);
 
 
-        System.out.println(rpged.equals(shootered));
+        System.out.println("---------------------------------------------------");
+
+        System.out.println(fired);
+        System.out.println(fired==fired1);// ???
+        System.out.println(fired.equals(fired1));
+
+        System.out.println(fired.hashCode());
+        System.out.println(rpged.hashCode());
+        System.out.println(shootered.hashCode());
+
+        System.out.println("--------------------------------------------------------");
+        Robot[] robMass=new Robot[6];
+        robMass[0]=fired;
+        robMass[1]=fired1;
+        robMass[2]=rpged;
+        robMass[3]=rpged1;
+        robMass[4]=shootered;
+        robMass[5]=shootered1;
+
+        for(int i=0;i<robMass.length;i++){
+            System.out.println(robMass[i].hashCode());//hashcode
+        }
+
+        for(int i=0;i<robMass.length;i++){
+            System.out.println(robMass[i].getNameOfRobot()+"    "+robMass[i].getClass());
+        }
+
+        System.out.println("--------------------------------------------------------------");
+
+        int [] robHassMass=new int[6];
+
+        robHassMass[0]=fired.hashCode();
+        robHassMass[1]=fired1.hashCode();
+        robHassMass[2]=rpged.hashCode();
+        robHassMass[3]=rpged1.hashCode();
+        robHassMass[4]=shootered.hashCode();
+        robHassMass[5]=shootered1.hashCode();
+
+        for(int i=0;i<robHassMass.length;i++){
+
+            System.out.println(robHassMass[i]);
+        }
+
+        for(int i=0;i<robHassMass.length;i++){
+            if(robHassMass[i]==fired.hashCode()){
+                fired.
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
