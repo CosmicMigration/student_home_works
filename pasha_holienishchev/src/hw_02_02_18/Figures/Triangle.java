@@ -1,4 +1,4 @@
-package hw_02_02_18;
+package hw_02_02_18.Figures;
 
 public class Triangle extends Figure{
     public Triangle() {
@@ -7,7 +7,7 @@ public class Triangle extends Figure{
     }
 
     public Triangle(int sideSize) {
-        setName("hw_02_02_18.Triangle");
+        setName("hw_02_02_18.Figures.Triangle");
         setSideCount(3);
         setSideSize(sideSize);
     }

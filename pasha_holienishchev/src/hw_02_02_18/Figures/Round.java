@@ -1,4 +1,4 @@
-package hw_02_02_18;
+package hw_02_02_18.Figures;
 
 public class Round extends Figure {
     public Round() {

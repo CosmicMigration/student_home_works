@@ -1,4 +1,4 @@
-package hw_02_02_18;
+package hw_02_02_18.Figures;
 
 public class Rectangle extends Figure {
     private int secondSide;
@@ -6,7 +6,7 @@ public class Rectangle extends Figure {
     }
 
     public Rectangle(int sideSize, int secondSide) {
-        setName("hw_02_02_18.Rectangle");
+        setName("hw_02_02_18.Figures.Rectangle");
         setSideCount(4);
         setSideSize(sideSize);
         this.secondSide = secondSide;

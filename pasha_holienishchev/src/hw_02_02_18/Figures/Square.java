@@ -1,12 +1,12 @@
-package hw_02_02_18;
+package hw_02_02_18.Figures;
 
 public class Square extends Figure{
     public Square() {
-        setName("hw_02_02_18.Square");
+        setName("hw_02_02_18.Figures.Square");
         setSideCount(4);
     }
     public Square(int sideSize){
-        setName("hw_02_02_18.Square");
+        setName("hw_02_02_18.Figures.Square");
         setSideCount(4);
         setSideSize(sideSize);
     }
