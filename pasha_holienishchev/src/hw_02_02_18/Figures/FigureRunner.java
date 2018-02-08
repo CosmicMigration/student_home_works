@@ -1,5 +1,6 @@
 package hw_02_02_18.Figures;
 
+//Todo пересмотреть эту задачу,использовать абстрактные методы.
 public class FigureRunner {
     public static void main(String[] args) {
         Rectangle rect1 = new Rectangle(4, 6);
