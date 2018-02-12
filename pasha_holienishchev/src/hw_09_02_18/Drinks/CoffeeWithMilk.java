@@ -5,18 +5,13 @@ import hw_09_02_18.Ingredients.Milk;
 import hw_09_02_18.Ingredients.Sugar;
 import hw_09_02_18.Ingredients.Water;
 
-public class CoffeeWithMilk extends Drink{
-    private Coffee coffee = new Coffee();
-    private Water water = new Water();
-    private Sugar sugar = new Sugar();
+public class CoffeeWithMilk extends BlackCoffee{
     private Milk milk = new Milk();
 
     public CoffeeWithMilk(double Water, double Coffee, double Sugar, double Milk) {
+        super(Water, Coffee, Sugar);
         setName("Coffee With Milk");
-        water.setCount(Water);
-        coffee.setCount(Coffee);
-        sugar.setCount(Sugar);
         milk.setCount(Milk);
-        setPrice(water.getPrice() + coffee.getPrice() + sugar.getPrice() + milk.getPrice());
+        setPrice(getPrice()+milk.getPrice());
     }
 }
