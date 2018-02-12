@@ -19,6 +19,9 @@ public class BlackCoffee extends Drink implements DrinkInfo {
 
     @Override
     public void getDrinkInfo() {
-        System.out.println();
+        System.out.println(getName());
+        System.out.println("Coffee beans  - " + coffee.getPrice() + "$ for " + coffee.getCount() + " grams");
+        System.out.println("Water -  " + water.getPrice() + "$ for " + water.getCount() + " ml");
+        System.out.println("Sugar - " + sugar.getPrice() + "$ for " + sugar.getCount() + " grams");
     }
 }

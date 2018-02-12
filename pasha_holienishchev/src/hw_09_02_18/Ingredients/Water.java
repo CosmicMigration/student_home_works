@@ -12,11 +12,15 @@ public class Water {
     }
 
     public void setCount(double count) {
-        this.price = count * 0.05D;
+        this.price = count * 0.005D;
         this.count = count;
     }
 
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

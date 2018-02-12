@@ -10,6 +10,7 @@ public class ShopRunner {
         CoffeeWithMilk coffeeWithMilk  = new CoffeeWithMilk(100, 10, 20, 20);
         Cappuccino cappuccino = new Cappuccino(100, 20, 20,20,20);
 
+        blackCoffee.getDrinkInfo();
         System.out.println(coffeeWithMilk.getPrice());
         System.out.println(cappuccino.getPrice());
     }

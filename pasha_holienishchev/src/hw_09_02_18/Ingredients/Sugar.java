@@ -15,7 +15,7 @@ public class Sugar extends Drink{
 
     public void setCount(double count) {
         this.count = count;
-        this.price = count * 0.1D;
+        this.price = count * 0.05D;
     }
 
     public double getPrice() {

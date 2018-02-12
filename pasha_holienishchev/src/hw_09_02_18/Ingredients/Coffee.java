@@ -13,10 +13,14 @@ public class Coffee {
 
     public void setCount(double count) {
         this.count = count;
-        this.price = count * 0.4D;
+        this.price = count * 0.7D;
     }
 
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
