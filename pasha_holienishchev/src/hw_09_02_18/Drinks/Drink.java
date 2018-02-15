@@ -7,7 +7,7 @@ public class Drink {
     private double price;
     private String componentsList;
 
-    // Создаём массив компонентов который будет у каждого напитка
+    // Добавляем компонент + цену. Представление в виде строки
     public void addComponent(Component component) {
         price += component.getPrice();
         if (componentsList != null) {
